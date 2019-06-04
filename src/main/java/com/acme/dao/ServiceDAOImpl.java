@@ -36,17 +36,6 @@ public class ServiceDAOImpl implements ServiceDAO {
 		TypedQuery<Long> query = entityManager.createQuery(
 				"SELECT COUNT(s) FROM ServiceInfo s where s.serviceId=:id", Long.class);
 		long count = query.setParameter("id", id).getSingleResult();
-		
-		/*
-		TypedQuery<ServiceInfo> query = entityManager.createQuery(
-		        "SELECT srvc FROM ServiceInfo srvc WHERE srvc.serviceId = :id", ServiceInfo.class);
-		int count = query.setParameter("id", id).getResultList().size();
-		*/
-		
-		/*
-		String hql = "FROM ServiceInfo as srvcInfo WHERE srvcInfo.serviceId = :id";
-		int count = entityManager.createQuery(hql).setParameter(1, id).getResultList().size();
-		*/
 		return count > 0 ? true : false;
 	}
 }
